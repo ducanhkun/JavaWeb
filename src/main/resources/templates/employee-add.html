@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thêm nhân viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body style="background: gray">
+<header class="container bg-white">
+    <div class="logo">
+        <img src="/path/to/logo.png" alt="Logo của trang web"/>
+    </div>
+</header>
+<section class="container bg-white py-3">
+    <h2>THÊM NHÂN VIÊN</h2>
+    <hr/>
+    <form th:action="@{/employees/save}" th:object="${employee}" method="post">
+        <div class="mb-3">
+            <label for="fullname" class="form-label">Họ và tên</label>
+            <input type="text" id="fullname" th:field="*{fullname}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="text" id="phone" th:field="*{phone}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <input type="text" id="address" th:field="*{address}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="birthday" class="form-label">Ngày sinh</label>
+            <input type="date" id="birthday" th:field="*{birthday}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Trạng thái</label>
+            <input type="text" id="status" th:field="*{status}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Lưu</button>
+        <a href="/employees" class="btn btn-secondary">Hủy</a>
+    </form>
+</section>
+</body>
+</html>
