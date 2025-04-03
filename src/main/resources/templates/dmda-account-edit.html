@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chỉnh sửa tài khoản</title>
+</head>
+<body>
+<h2>Chỉnh sửa tài khoản</h2>
+<form th:action="@{/accounts/edit/{id}(id=${account.id})}" method="post">
+  <input type="hidden" name="id" th:value="${account.id}">
+  <label>Tên: <input type="text" name="dmdaName" th:value="${account.dmdaName}"></label><br>
+  <label>Email: <input type="email" name="dmdaEmail" th:value="${account.dmdaEmail}"></label><br>
+  <button type="submit">Cập nhật</button>
+</form>
+</body>
+</html>

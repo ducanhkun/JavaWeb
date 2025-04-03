@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách tài khoản</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>Danh sách tài khoản</h2>
+<a href="/accounts/add"><button>Thêm tài khoản</button></a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên đăng nhập</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    <tbody>
+    <!-- Duyệt danh sách tài khoản từ backend -->
+    <tr th:each="acc : ${accounts}">
+        <td th:text="${account.id != null ? account.id : 'ID not available'}"></td>
+        <td th:text="${account.dmdaUser}"></td>
+        <td th:text="${account.dmdaName}"></td>
+        <td th:text="${account.dmdaEmail}"></td>
+        <td th:text="${account.dmdaPhone}"></td>
+        <td th:text="${account.dmdaAddress}"></td>
+        <td th:text="${account.dmdaStatus}"></td>
+        <td>
+            <a th:href="@{/accounts/edit/{id}(id=${acc.id})}"><button>Sửa</button></a>
+            <a th:href="@{/accounts/delete/{id}(id=${account.id})}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?');">
+                <button>Xóa</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

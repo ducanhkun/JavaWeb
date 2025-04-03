@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm tài khoản</title>
+</head>
+<body>
+<h2>Thêm tài khoản mới</h2>
+<form action="/accounts/add" method="post">
+  <label>Tên đăng nhập: <input type="text" name="dmdaUser"></label><br>
+  <label>Mật khẩu: <input type="password" name="dmdaPass"></label><br>
+  <label>Tên: <input type="text" name="dmdaName"></label><br>
+  <label>Email: <input type="email" name="dmdaEmail"></label><br>
+  <label>Điện thoại: <input type="text" name="dmdaPhone"></label><br>
+  <label>Trạng thái: <input type="number" name="dmdaStatus"></label><br>
+  <button type="submit">Thêm</button>
+</form>
+</body>
+</html>
